@@ -8,7 +8,7 @@ Enjoy italics in your vim (and probably other places too?).
 It works in gnome-terminal.  I think it will work in iterm too.  You can check
 if your terminal supports italic text by running:
 
-  echo -e "\e[3mhello\e[23m"
+    echo -e "\e[3mhello\e[23m"
 
 ## Instructions
 
@@ -22,9 +22,7 @@ When you ssh to other machines, programs that rely on your terminfo will fail.
 You need to either install the new terminfos on remote machines, or add
 something like this to your bashrc:
 
-  ssh() {
-    TERM=${TERM%-italic} command ssh "$@"
-  }
+    ssh() { TERM=${TERM%-italic} command ssh "$@"; }
 
 It might be more convenient to just modify the existing termcaps directly
 instead of making new ones.
