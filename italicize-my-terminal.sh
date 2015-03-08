@@ -3,13 +3,10 @@
 set -e
 
 # XTERM TERMCAP
-# thanks https://gist.github.com/sos4nt/3187620
-XTERM=/tmp/xterm-256color-italic.terminfo
-cat >$XTERM <<EOF
-xterm-256color-italic|xterm with 256 colors and italic,
-  sitm=\E[3m, ritm=\E[23m,
-  use=xterm-256color,
-EOF
+XTERM=/tmp/xterm-256color.terminfo
+infocmp xterm-256color | sed \
+  -e 's/with 256 colors/with 256 colors and italic/' \
+  -e '$a\\tsitm=\\E[3m, ritm=\\E[23m,' > $XTERM
 tic $XTERM
 
 # THIS WORKS FOR TMUX (NOT SURE ABOUT SCREEN)

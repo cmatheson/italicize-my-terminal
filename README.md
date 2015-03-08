@@ -13,17 +13,4 @@ if your terminal supports italic text by running:
 
 ## Instructions
 
-  1. Run `italicize-my-terminal.sh`
-  2. Make your TERM be xterm-256color-italic (this may be done in your terminal
-     preferences or your bashrc)
-
-## Potential Issues
-
-When you ssh to other machines, programs that rely on your terminfo will fail.
-You need to either install the new terminfos on remote machines, or add
-something like this to your bashrc:
-
-    ssh() { TERM=${TERM%-italic} command ssh "$@"; }
-
-It might be more convenient to just modify the existing termcaps directly
-instead of making new ones.
+Run `italicize-my-terminal.sh`
